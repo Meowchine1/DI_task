@@ -1,9 +1,5 @@
 ﻿using DIcontainer.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DIcontainer
 {
@@ -27,8 +23,8 @@ namespace DIcontainer
             serviceSecond.PrintSomething();
 
 
-          //  var FirstA = container.GetService<IA>();
-            var FirstA = container.GetService<C>();
+            //var FirstA = container.GetService<IA>();
+            var FirstC = container.GetService<C>();
            
         
         }
