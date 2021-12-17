@@ -29,7 +29,7 @@ namespace DIcontainer.DependencyInjection
         }
 
 
-        public bool Test(Type serviceType, Type parametrType)
+        public bool IsItCycled(Type serviceType, Type parametrType)
         {
             var descriptor = _serviceDescriptors
              .SingleOrDefault(x => x.ServiceType == parametrType);
@@ -70,7 +70,7 @@ namespace DIcontainer.DependencyInjection
             var constructor = actualType.GetConstructors().First();
 
             if (constructor.GetParameters()
-                .Any(x => Test(serviceType, x.ParameterType)))
+                .Any(x => IsItCycled(serviceType, x.ParameterType)))
             {
                 throw new Exception($" Cyclic communication");
             }
